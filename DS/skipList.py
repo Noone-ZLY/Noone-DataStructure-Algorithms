@@ -107,7 +107,6 @@ class SkipList:
             print(skiplist_str)
             i -= 1
 
-
 if __name__ == "__main__":
     l = SkipList()
     l.pprint()
