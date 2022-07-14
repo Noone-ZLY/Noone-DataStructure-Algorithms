@@ -1,7 +1,3 @@
-from hashlib import new
-from sympy import N
-
-
 class ListNode:
     def __init__(self, val=None, next=None) -> None:
         self.val = val
@@ -70,6 +66,20 @@ class LinkList:
             print_str += '->' + str(cur.val)
             cur = cur.next
         print(print_str)
+    
+    def reverse_by_iter(self):
+        '''
+        反转链表
+        '''
+        pre, cur = None, self.head.next
+        while cur:
+            tmp = cur.next
+            cur.next = pre
+            pre, cur = cur, tmp
+        dummry_node = LinkList()
+        dummry_node.head.next = pre
+        return dummry_node
+
 
 # 测试
 if __name__ == '__main__':
@@ -81,4 +91,6 @@ if __name__ == '__main__':
     root.find(4)
     root.delete(4)
     root.pprint()
+    reverse_list = root.reverse_by_iter()
+    reverse_list.pprint()
 
